@@ -100,7 +100,7 @@ class _HomeViewState extends State<HomeView> {
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
-      child: Column(
+      child: ListView(
         children: [
           /// Top Section Of Home page : Text, Progrss Indicator
           Container(
@@ -115,7 +115,8 @@ class _HomeViewState extends State<HomeView> {
                   width: 25,
                   height: 25,
                   child: CircularProgressIndicator(
-                    valueColor: const AlwaysStoppedAnimation(MyColors.primaryColor),
+                    valueColor:
+                        const AlwaysStoppedAnimation(MyColors.primaryColor),
                     backgroundColor: Colors.grey,
                     value: checkDoneTask(tasks) / valueOfTheIndicator(tasks),
                   ),
@@ -304,7 +305,8 @@ class MySlider extends StatelessWidget {
 
 /// My App Bar
 class MyAppBar extends StatefulWidget with PreferredSizeWidget {
-  MyAppBar({Key? key, 
+  MyAppBar({
+    Key? key,
     required this.drawerKey,
   }) : super(key: key);
   GlobalKey<SliderDrawerState> drawerKey;
