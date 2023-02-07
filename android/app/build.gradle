@@ -47,10 +47,10 @@ android {
         applicationId "com.michallukaszewski.flutter_hive_tdo"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionName flutterVersionName 
     }
 
     buildTypes {
@@ -60,6 +60,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+   
 }
 
 flutter {
