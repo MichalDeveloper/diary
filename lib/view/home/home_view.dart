@@ -263,7 +263,7 @@ class MySlider extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          Text("AmirHossein Bayat", style: textTheme.headline2),
+          Text("Michał Łukaszewski", style: textTheme.headline2),
           Text("junior flutter dev", style: textTheme.headline3),
           Container(
             margin: const EdgeInsets.symmetric(
