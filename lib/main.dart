@@ -8,6 +8,60 @@ import '../data/hive_data_store.dart';
 import '../models/task.dart';
 import '../view/home/home_view.dart';
 
+void mains() => runApp(MyApp());
+
+class MyApps extends StatefulWidget {
+  const MyApps({super.key});
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+///dark mode
+class _MyAppState extends State<MyApps> {
+  Brightness _brightness = Brightness.light;
+
+  void _toggleBrightness() {
+    setState(() {
+      _brightness =
+          _brightness == Brightness.light ? Brightness.dark : Brightness.light;
+    });
+  }
+
+  
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: _brightness,
+        primarySwatch: Colors.indigo,
+        accentColor: Colors.pink,
+        backgroundColor:
+            _brightness == Brightness.light ? Colors.white : Colors.black,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Dark Mode Example'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(_brightness == Brightness.light
+                  ? Icons.brightness_2
+                  : Icons.brightness_7),
+              onPressed: _toggleBrightness,
+            ),
+          ],
+        ),
+        body: Center(
+          child: Text(
+            'Hello World!',
+            style: Theme.of(context).textTheme.headline1,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -18,7 +72,9 @@ Future<void> main() async {
   await Hive.initFlutter();
 
   /// Register Hive Adapter
-  Hive.registerAdapter<Task>(TaskAdapter());
+  Hive.registerAdapter<Task>(
+    TaskAdapter(),
+  );
 
   /// Open box
   var box = await Hive.openBox<Task>("tasksBox");
@@ -31,7 +87,11 @@ Future<void> main() async {
     } else {}
   });
 
-  runApp(BaseWidget(child: const MyApp()));
+  runApp(
+    BaseWidget(
+      child: MyApp(),
+    ),
+  );
 }
 
 class BaseWidget extends InheritedWidget {
