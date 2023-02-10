@@ -28,7 +28,6 @@ class _MyAppState extends State<MyApps> {
     });
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
