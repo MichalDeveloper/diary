@@ -258,7 +258,7 @@ class MySlider extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 50,
-            backgroundImage: AssetImage('assets/img/main.png'),
+            backgroundImage: AssetImage('images/girl.jpg'),
           ),
           const SizedBox(
             height: 8,
